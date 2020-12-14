@@ -132,11 +132,13 @@ begin
         M => number_out);
     -- hex digits - map to the two input 4 bit numbers
     hex71: entity work.hexToSevenSegment port map (
-        hexNumber => number1,
-        sevenSegmentActiveHigh => HEX1
+        hexNumber => number2,
+		  sevenSegmentActiveLow => hex1
+		  
     );
     hex70: entity work.hexToSevenSegment port map (
-        hexNumber => number2,
-        sevenSegmentActiveHigh => HEX0
+        hexNumber => number1,
+		  sevenSegmentActiveLow => hex0
+		  
         );
 end behaviour;

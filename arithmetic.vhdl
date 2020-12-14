@@ -26,7 +26,7 @@ signal part : unsigned(3 downto 0);
 signal mb : unsigned(3 downto 0);
 
 begin
-    process(SW9,SW8) is
+    process(number1, number2, SW9,SW8) is
     begin
         if(SW9 = '0' and SW8 = '0') then          -- add two numbers
             A(0) <= number1 (0) xor number2(0);
@@ -54,9 +54,9 @@ begin
             A(3) <= number1 (3) xor b3 xor c2;
 
         elsif(SW9='1' and SW8='0') then           -- multiply two numbers
-            A <= std_logic_vector(unsigned(number1) * unsigned(number2));
+            A <= "00" & (std_logic_vector(unsigned(number1) * unsigned(number2)));
         elsif(SW9='1' and SW8='1') then           -- divide two numbers
-            A <= std_logic_vector(to_unsigned(to_integer(unsigned(number1) / unsigned(number2)),8));
+            A <= "00" & (std_logic_vector(to_unsigned(to_integer(unsigned(number1) / unsigned(number2)),8)));
         end if;
     end process;
 end arith;
