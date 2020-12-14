@@ -25,7 +25,7 @@ begin
   elsif (SW9 ='1' and SW8 = '0') then
       L <= "000000" & (number1 XOR number2);
   else
-      L <= NOT(number1) & NOT(number2);
+      L <= "00" & (NOT(number1) & NOT(number2));
   end if;
  
 end process;
