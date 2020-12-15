@@ -38,19 +38,18 @@ begin
             A(3) <= number1 (3) xor number2(3) xor c2;
             c3 <= number1(3) and number2(3);
             A(4) <= c3;
-
         elsif(SW9='0' and SW8='1') then           -- subtract two numbers
-        d <= '1';
-        b0 <= not number2(0);
-        b1 <= not number2(1);
-        b2 <= not number2(2);
-        b3 <= not number2(3);
-        A(0) <= number1(0) xor b0 xor d;
+	    d <= '1';
+	    b0 <= not number2(0);
+	    b1 <= not number2(1);
+	    b2 <= not number2(2);
+	    b3 <= not number2(3);
+	    A(0) <= number1(0) xor b0 xor d;
             c0 <= (number1(0) and b0) or (number1(0) and d) or (b0 and d);
             A(1) <= number1 (1) xor b1 xor c0;
-            c1 <= (number1(1) and b1) or (number1(1) and d) or (b1 and d);
+            c1 <= number1(1) and b1;
             A(2) <= number1 (2) xor b2 xor c1;
-            c2 <= (number1(2) and b2) or (number1(2) and d) or (b2 and d);
+            c2 <= number1(2) and b2;
             A(3) <= number1 (3) xor b3 xor c2;
 
         elsif(SW9='1' and SW8='0') then           -- multiply two numbers
